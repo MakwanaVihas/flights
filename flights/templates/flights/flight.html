@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body>
+  <center><h1>Flights</h1></center>
+  <div>
+  <h2>Flight's origin: {{flights.origin.city}}</<h2>
+  <h2>Flight's destination: {{flights.destination.city}}</h2>
+  <h2>Flight's duration: {{flights.duration}}</h2>
+  <h2>Valid: {{flights.is_valid_flight}}</h2><hr>
+  <ul>
+    {%for i in passengers%}
+    <li>{{i.first_name}} {{i.last_name}}</li>
+    {%endfor%}
+    </ul><hr>
+    <form action="{%url 'book' flights.id%}" method="post">
+      {%if not_passengers%}
+      {%csrf_token%}
+      <select name="passenger">
+        {%for p in not_passengers %}
+      <option value="{{p.id}}">
+          {{ p }}
+      </option>
+        {%endfor%}
+      </select><br>
+      <input type="submit" value="Book A Flight"/>
+      <form>
+        {%else%}
+        <div>NO PASSENGERS</div>
+        {%endif%}
+  <a href="{% url 'index'%}">Back...</a>
+</div></body>
+</html>

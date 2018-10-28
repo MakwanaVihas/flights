@@ -1,0 +1,47 @@
+<html>
+<head>
+<style>
+h1{
+  font-size: 50px;
+  font-family: chilanka;
+  align-items: center;
+  color: red;
+  animation-name: e1;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  animation-duration: 4s;
+}
+a{
+  font-family: chilanka;
+  font-size: 20px;
+  line-height: 100px;
+
+}
+@keyframes e1  {
+    0%{
+      color: red;
+    }
+    50%{
+      color: blue;
+    }
+    100%{
+      color: red;
+    }
+}
+</style>
+<script>
+// document.addEventListener("DOMContentLoaded",()=>{
+//   window.onkeypress=(event)=>{alert(event.keyCode);
+//   document.querySelector("h1").style.animationPlayState='paused'}
+// })
+</script>
+</head>
+<body>
+  <center><h1>Flights</h1></center>
+  <div>
+  {%for i in flights%}
+  <a href="{%url 'flight' i.id%}">{{i.id}}:{{i.origin}} to {{i.destination}}</a><br>
+  {%endfor%}
+</body>
+</html>
