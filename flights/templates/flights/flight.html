@@ -1,8 +1,47 @@
 <html>
 <head>
+<style>
+select,button{
+background-color: white;
+border-radius: 4px;
+height:30px;
+font-size: 15px;
+width: 140px;
+
+}
+button{
+height:60px;
+width: 240px;
+margin-right:5px;
+box-shadow: 5px 5px 5px gray; 
+font-size:25px;
+}
+.grid{
+text-align:center;
+
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+document.querySelector(".blue").onclick=()=>{document.body.style.background='blue'};
+document.querySelector(".green").onclick=()=>{document.body.style.background='green'};
+document.querySelector(".yellow").onclick=()=>{document.body.style.background='yellow'};
+document.querySelector(".white").onclick=()=>{document.body.style.background='white'};
+document.querySelector(".orange").onclick=()=>{document.body.style.background='orange'};
+document.querySelector(".red").onclick=()=>{document.body.style.background='red'};
+});
+</script>
 </head>
 <body>
   <center><h1>Flights</h1></center>
+<div class="grid">
+<button class="blue">Blue</button>
+<button class="green">Green</button>
+<button class="yellow">Yellow</button>
+<button class="white">White</button>
+<button class="orange">Orange</button>
+<button class="red">Red</button>
+</div>
   <div>
   <h2>Flight's origin: {{flights.origin.city}}</<h2>
   <h2>Flight's destination: {{flights.destination.city}}</h2>
